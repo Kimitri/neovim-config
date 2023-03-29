@@ -9,6 +9,7 @@ call plug#begin()
  Plug 'neoclide/coc.nvim', {'branch': 'release'}
  Plug 'hashivim/vim-terraform'
  Plug 'tpope/vim-fugitive'
+ Plug 'airblade/vim-gitgutter'
 call plug#end()
 
 let g:loaded_python3_provider = 0
