@@ -8,6 +8,7 @@ call plug#begin()
  Plug 'mhinz/vim-startify'
  Plug 'neoclide/coc.nvim', {'branch': 'release'}
  Plug 'hashivim/vim-terraform'
+ Plug 'tpope/vim-fugitive'
 call plug#end()
 
 let g:loaded_python3_provider = 0
@@ -48,6 +49,8 @@ colorscheme dracula
 set splitright
 set splitbelow
 
+
+set statusline=%<%f\ %h%m%r%{FugitiveStatusline()}%=%-14.(%l,%c%V%)\ %P
 
 " move line or visually selected block - alt+j/k
 inoremap <A-j> <Esc>:m .+1<CR>==gi
