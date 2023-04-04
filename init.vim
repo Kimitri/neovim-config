@@ -10,9 +10,13 @@ call plug#begin()
  Plug 'hashivim/vim-terraform'
  Plug 'tpope/vim-fugitive'
  Plug 'airblade/vim-gitgutter'
+ Plug 'MaxMEllon/vim-jsx-pretty'
+ Plug 'nvim-lua/plenary.nvim'
+ Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.1' }
 call plug#end()
 
 let g:loaded_python3_provider = 0
+let mapleader = "\<Space>"
 
 set nocompatible            " disable compatibility to old-time vi
 set showmatch               " show matching 
@@ -35,6 +39,7 @@ set clipboard=unnamedplus   " using system clipboard
 filetype plugin on
 set cursorline              " highlight current cursorline
 set ttyfast                 " Speed up scrolling in Vim
+set relativenumber          " Relative line numbers
 " set spell                 " enable spell check (may need to download language package)
 " set noswapfile            " disable creating swap file
 " set backupdir=~/.cache/vim " Directory to store backup files.
@@ -66,6 +71,12 @@ nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
+
+" Find files using Telescope command-line sugar.
+nnoremap <leader>ff <cmd>Telescope find_files<cr>
+nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+nnoremap <leader>fb <cmd>Telescope buffers<cr>
+nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 
 " Press i to enter insert mode, and ii to exit insert mode.
 ":inoremap ii <Esc>
