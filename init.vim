@@ -13,6 +13,7 @@ call plug#begin()
  Plug 'MaxMEllon/vim-jsx-pretty'
  Plug 'nvim-lua/plenary.nvim'
  Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.1' }
+ Plug 'nelsyeung/twig.vim'
 call plug#end()
 
 let g:loaded_python3_provider = 0
