@@ -44,7 +44,7 @@ set relativenumber          " Relative line numbers
 " set spell                 " enable spell check (may need to download language package)
 " set noswapfile            " disable creating swap file
 " set backupdir=~/.cache/vim " Directory to store backup files.
-
+set clipboard+=unnamedplus
 
  if (has("termguicolors"))
  set termguicolors
