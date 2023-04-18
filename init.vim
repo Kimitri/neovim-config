@@ -1,4 +1,5 @@
 call plug#begin()
+ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
  Plug 'dracula/vim'
  Plug 'ryanoasis/vim-devicons'
 " Plug 'SirVer/ultisnips'
