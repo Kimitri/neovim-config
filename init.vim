@@ -88,6 +88,9 @@ nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 ":vnoremap jk <Esc>
 ":vnoremap kj <Esc>
 
+" Center active line when moving half a page up or down
+:nnoremap <C-d> <C-d>zz
+:nnoremap <C-u> <C-u>zz
 
 " open file in a text by placing text and gf
 nnoremap gf :vert winc f<cr> " copies filepath to clipboard by pressing yf
