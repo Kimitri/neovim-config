@@ -15,6 +15,7 @@ call plug#begin()
  Plug 'nvim-lua/plenary.nvim'
  Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.1' }
  Plug 'nelsyeung/twig.vim'
+ Plug 'christoomey/vim-tmux-navigator'
 call plug#end()
 
 let g:loaded_python3_provider = 0
@@ -47,6 +48,51 @@ set relativenumber          " Relative line numbers
 " set backupdir=~/.cache/vim " Directory to store backup files.
 set clipboard+=unnamedplus
 set shell=bash\ -l
+
+if has("autocmd")
+  " Drupal *.module and *.install files.
+  augroup module
+    autocmd BufRead,BufNewFile *.module set filetype=php
+    autocmd BufRead,BufNewFile *.install set filetype=php
+    autocmd BufRead,BufNewFile *.test set filetype=php
+
+    autocmd BufRead,BufNewFile *.module set expandtab
+    autocmd BufRead,BufNewFile *.module set tabstop=2
+    autocmd BufRead,BufNewFile *.module set shiftwidth=2
+    autocmd BufRead,BufNewFile *.module set autoindent
+    autocmd BufRead,BufNewFile *.module set smartindent
+
+    autocmd BufRead,BufNewFile *.inc set expandtab
+    autocmd BufRead,BufNewFile *.inc set tabstop=2
+    autocmd BufRead,BufNewFile *.inc set shiftwidth=2
+    autocmd BufRead,BufNewFile *.inc set autoindent
+    autocmd BufRead,BufNewFile *.inc set smartindent
+
+  augroup END
+  augroup markdown
+    autocmd BufRead,BufNewFile *.md set filetype=markdown
+    autocmd BufRead,BufNewFile *.mdown set filetype=markdown
+    autocmd BufRead,BufNewFile *.markdown set filetype=markdown
+
+    autocmd BufRead,BufNewFile *.md set expandtab
+    autocmd BufRead,BufNewFile *.md set tabstop=2
+    autocmd BufRead,BufNewFile *.md set shiftwidth=2
+    autocmd BufRead,BufNewFile *.md set autoindent
+    autocmd BufRead,BufNewFile *.md set smartindent
+
+    autocmd BufRead,BufNewFile *.mdown set expandtab
+    autocmd BufRead,BufNewFile *.mdown set tabstop=2
+    autocmd BufRead,BufNewFile *.mdown set shiftwidth=2
+    autocmd BufRead,BufNewFile *.mdown set autoindent
+    autocmd BufRead,BufNewFile *.mdown set smartindent
+
+    autocmd BufRead,BufNewFile *.markdown set expandtab
+    autocmd BufRead,BufNewFile *.markdown set tabstop=2
+    autocmd BufRead,BufNewFile *.markdown set shiftwidth=2
+    autocmd BufRead,BufNewFile *.markdown set autoindent
+    autocmd BufRead,BufNewFile *.markdown set smartindent
+  augroup END
+endif
 
  if (has("termguicolors"))
  set termguicolors
