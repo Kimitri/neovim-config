@@ -18,6 +18,7 @@ call plug#begin()
  Plug 'christoomey/vim-tmux-navigator'
  Plug 'vim-airline/vim-airline'
  Plug 'vim-airline/vim-airline-themes'
+ Plug 'varnishcache-friends/vim-varnish'
 call plug#end()
 
 let g:loaded_python3_provider = 0
