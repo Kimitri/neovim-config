@@ -50,7 +50,7 @@ set relativenumber          " Relative line numbers
 " set noswapfile            " disable creating swap file
 " set backupdir=~/.cache/vim " Directory to store backup files.
 set clipboard+=unnamedplus
-" set shell=/bin/bash\ -li
+set shell=/usr/local/bin/bash\ -li
 
 let g:airline_theme='onedark'
 let g:airline_powerline_fonts=1
