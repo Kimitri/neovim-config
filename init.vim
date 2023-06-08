@@ -19,6 +19,7 @@ call plug#begin()
  Plug 'vim-airline/vim-airline'
  Plug 'vim-airline/vim-airline-themes'
  Plug 'varnishcache-friends/vim-varnish'
+ Plug 'ixru/nvim-markdown'
 call plug#end()
 
 let g:loaded_python3_provider = 0
@@ -50,7 +51,7 @@ set relativenumber          " Relative line numbers
 " set noswapfile            " disable creating swap file
 " set backupdir=~/.cache/vim " Directory to store backup files.
 set clipboard+=unnamedplus
-set shell=/usr/local/bin/bash\ -li
+set shell=/usr/local/bin/bash
 
 let g:airline_theme='onedark'
 let g:airline_powerline_fonts=1
