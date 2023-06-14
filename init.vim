@@ -20,6 +20,7 @@ call plug#begin()
  Plug 'vim-airline/vim-airline-themes'
  Plug 'varnishcache-friends/vim-varnish'
  Plug 'ixru/nvim-markdown'
+ Plug 'github/copilot.vim'
 call plug#end()
 
 let g:loaded_python3_provider = 0
