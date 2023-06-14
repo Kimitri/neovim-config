@@ -52,54 +52,16 @@ set relativenumber          " Relative line numbers
 " set noswapfile            " disable creating swap file
 " set backupdir=~/.cache/vim " Directory to store backup files.
 set clipboard+=unnamedplus
-set shell=/usr/local/bin/bash
 
 let g:airline_theme='onedark'
 let g:airline_powerline_fonts=1
 
-if has("autocmd")
-  " Drupal *.module and *.install files.
-  augroup module
-    autocmd BufRead,BufNewFile *.module set filetype=php
-    autocmd BufRead,BufNewFile *.install set filetype=php
-    autocmd BufRead,BufNewFile *.test set filetype=php
+if filereadable("autocmd/drupal.vim")
+  source autocmd/drupal.vim
+endif
 
-    autocmd BufRead,BufNewFile *.module set expandtab
-    autocmd BufRead,BufNewFile *.module set tabstop=4
-    autocmd BufRead,BufNewFile *.module set shiftwidth=4
-    autocmd BufRead,BufNewFile *.module set autoindent
-    autocmd BufRead,BufNewFile *.module set smartindent
-
-    autocmd BufRead,BufNewFile *.inc set expandtab
-    autocmd BufRead,BufNewFile *.inc set tabstop=4
-    autocmd BufRead,BufNewFile *.inc set shiftwidth=4
-    autocmd BufRead,BufNewFile *.inc set autoindent
-    autocmd BufRead,BufNewFile *.inc set smartindent
-
-  augroup END
-  augroup markdown
-    autocmd BufRead,BufNewFile *.md set filetype=markdown
-    autocmd BufRead,BufNewFile *.mdown set filetype=markdown
-    autocmd BufRead,BufNewFile *.markdown set filetype=markdown
-
-    autocmd BufRead,BufNewFile *.md set expandtab
-    autocmd BufRead,BufNewFile *.md set tabstop=2
-    autocmd BufRead,BufNewFile *.md set shiftwidth=2
-    autocmd BufRead,BufNewFile *.md set autoindent
-    autocmd BufRead,BufNewFile *.md set smartindent
-
-    autocmd BufRead,BufNewFile *.mdown set expandtab
-    autocmd BufRead,BufNewFile *.mdown set tabstop=2
-    autocmd BufRead,BufNewFile *.mdown set shiftwidth=2
-    autocmd BufRead,BufNewFile *.mdown set autoindent
-    autocmd BufRead,BufNewFile *.mdown set smartindent
-
-    autocmd BufRead,BufNewFile *.markdown set expandtab
-    autocmd BufRead,BufNewFile *.markdown set tabstop=2
-    autocmd BufRead,BufNewFile *.markdown set shiftwidth=2
-    autocmd BufRead,BufNewFile *.markdown set autoindent
-    autocmd BufRead,BufNewFile *.markdown set smartindent
-  augroup END
+if filereadable("autocmd/markdown.vim")
+  source autocmd/markdown.vim
 endif
 
  if (has("termguicolors"))
@@ -154,4 +116,9 @@ nnoremap gf :vert winc f<cr> " copies filepath to clipboard by pressing yf
 if has("autocmd")
   au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
     \| exe "normal! g'\"" | endif
+endif
+
+" Import local vim files
+if filereadable("local.init.vim")
+  source local.init.vim
 endif
