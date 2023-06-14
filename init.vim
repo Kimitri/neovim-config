@@ -118,7 +118,17 @@ if has("autocmd")
     \| exe "normal! g'\"" | endif
 endif
 
+<<<<<<< Updated upstream
 " Import local vim files
 if filereadable("local.init.vim")
   source local.init.vim
 endif
+=======
+
+map <Plug> <Plug>Markdown_MoveToNextHeader
+map <Plug> <Plug>Markdown_MoveToPreviousHeader
+map <Plug> <Plug>Markdown_MoveToNextSiblingHeader
+map <Plug> <Plug>Markdown_MoveToPreviousSiblingHeader
+map <Plug> <Plug>Markdown_MoveToCurHeader
+map <Plug> <Plug>Markdown_MoveToParentHeader
+>>>>>>> Stashed changes
