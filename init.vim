@@ -56,12 +56,51 @@ set clipboard+=unnamedplus
 let g:airline_theme='onedark'
 let g:airline_powerline_fonts=1
 
-if filereadable("autocmd/drupal.vim")
-  source autocmd/drupal.vim
-endif
+if has("autocmd")
+  " Drupal *.module and *.install files.
+  augroup module
+    autocmd BufRead,BufNewFile *.module set filetype=php
+    autocmd BufRead,BufNewFile *.install set filetype=php
+    autocmd BufRead,BufNewFile *.test set filetype=php
 
-if filereadable("autocmd/markdown.vim")
-  source autocmd/markdown.vim
+    autocmd BufRead,BufNewFile *.module set expandtab
+    autocmd BufRead,BufNewFile *.module set tabstop=4
+    autocmd BufRead,BufNewFile *.module set shiftwidth=4
+    autocmd BufRead,BufNewFile *.module set autoindent
+    autocmd BufRead,BufNewFile *.module set smartindent
+
+    autocmd BufRead,BufNewFile *.inc set expandtab
+    autocmd BufRead,BufNewFile *.inc set tabstop=4
+    autocmd BufRead,BufNewFile *.inc set shiftwidth=4
+    autocmd BufRead,BufNewFile *.inc set autoindent
+    autocmd BufRead,BufNewFile *.inc set smartindent
+
+  augroup END
+
+  " Markdown file settings
+  augroup markdown
+    autocmd BufRead,BufNewFile *.md set filetype=markdown
+    autocmd BufRead,BufNewFile *.mdown set filetype=markdown
+    autocmd BufRead,BufNewFile *.markdown set filetype=markdown
+
+    autocmd BufRead,BufNewFile *.md set expandtab
+    autocmd BufRead,BufNewFile *.md set tabstop=2
+    autocmd BufRead,BufNewFile *.md set shiftwidth=2
+    autocmd BufRead,BufNewFile *.md set autoindent
+    autocmd BufRead,BufNewFile *.md set smartindent
+
+    autocmd BufRead,BufNewFile *.mdown set expandtab
+    autocmd BufRead,BufNewFile *.mdown set tabstop=2
+    autocmd BufRead,BufNewFile *.mdown set shiftwidth=2
+    autocmd BufRead,BufNewFile *.mdown set autoindent
+    autocmd BufRead,BufNewFile *.mdown set smartindent
+
+    autocmd BufRead,BufNewFile *.markdown set expandtab
+    autocmd BufRead,BufNewFile *.markdown set tabstop=2
+    autocmd BufRead,BufNewFile *.markdown set shiftwidth=2
+    autocmd BufRead,BufNewFile *.markdown set autoindent
+    autocmd BufRead,BufNewFile *.markdown set smartindent
+  augroup END
 endif
 
  if (has("termguicolors"))
