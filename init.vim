@@ -32,10 +32,10 @@ set ignorecase              " case insensitive
 set mouse=v                 " middle-click paste with 
 set hlsearch                " highlight search 
 set incsearch               " incremental search
-set tabstop=4               " number of columns occupied by a tab 
-set softtabstop=4           " see multiple spaces as tabstops so <BS> does the right thing
+set tabstop=2               " number of columns occupied by a tab 
+set softtabstop=2           " see multiple spaces as tabstops so <BS> does the right thing
 set expandtab               " converts tabs to white space
-set shiftwidth=4            " width for autoindents
+set shiftwidth=2            " width for autoindents
 set autoindent              " indent a new line the same amount as the line just typed
 set number                  " add line numbers
 set wildmode=longest,list   " get bash-like tab completions
@@ -132,6 +132,7 @@ nnoremap <C-l> <C-w>l
 
 " Find files using Telescope command-line sugar.
 nnoremap <leader>ff <cmd>Telescope find_files<cr>
+nnoremap <leader>fs <cmd>Telescope git_files<cr>
 nnoremap <leader>fg <cmd>Telescope live_grep<cr>
 nnoremap <leader>fb <cmd>Telescope buffers<cr>
 nnoremap <leader>fh <cmd>Telescope help_tags<cr>
