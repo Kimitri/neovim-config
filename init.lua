@@ -32,7 +32,25 @@ require("lazy").setup({
     end,
   },
   {"nvim-treesitter/nvim-treesitter", build = ":TSUpdate"},
-  {"christoomey/vim-tmux-navigator", lazy = false},
+  {"alexghergh/nvim-tmux-navigation",
+    lazy = false,
+    priority = 1000,
+    config = function()
+
+        local nvim_tmux_nav = require('nvim-tmux-navigation')
+
+        nvim_tmux_nav.setup({
+            disable_when_zoomed = true, -- defaults to false
+            keybindings = {
+                left = '<C-h>',
+                down = '<C-j>',
+                up = '<C-k>',
+                right = '<C-l>',
+            }
+        })
+
+    end,
+  },
   {"ryanoasis/vim-devicons", lazy = false},
   {"honza/vim-snippets", lazy = false},
   "scrooloose/nerdtree",
@@ -98,20 +116,12 @@ vim.g["airline_symbols.dirty"] = "*"
 
 
 -- Key mappings
-vim.api.nvim_set_keymap("n", "<leader>ff", ":Telescope find_files<CR>", {noremap = true})
-vim.api.nvim_set_keymap("n", "<leader>fg", ":Telescope live_grep<CR>", {noremap = true})
-vim.api.nvim_set_keymap("n", "<leader>fb", ":Telescope buffers<CR>", {noremap = true})
-vim.api.nvim_set_keymap("n", "<leader>fh", ":Telescope help_tags<CR>", {noremap = true})
-vim.api.nvim_set_keymap("n", "<leader>fs", ":Telescope git_files<CR>", {noremap = true})
+map("n", "<leader>ff", ":Telescope find_files<CR>", {noremap = true})
+map("n", "<leader>fg", ":Telescope live_grep<CR>", {noremap = true})
+map("n", "<leader>fb", ":Telescope buffers<CR>", {noremap = true})
+map("n", "<leader>fh", ":Telescope help_tags<CR>", {noremap = true})
+map("n", "<leader>fs", ":Telescope git_files<CR>", {noremap = true})
 
-vim.api.nvim_set_keymap("n", "<leader>tt", ":NERDTreeToggle<CR>", {noremap = true})
+map("n", "<leader>tt", ":NERDTreeToggle<CR>", {noremap = true})
 
 
-map("n", "<C-l>", "<cmd>TmuxNavigateRight<CR>", {remap = true})
-map("n", "<C-h>", "<cmd>TmuxNavigateLeft<CR>")
-map("n", "<C-k>", "<cmd>TmuxNavigateUp<CR>")
-map("n", "<C-j>", "<cmd>TmuxNavigateDown<CR>")
-
-vim.cmd([[
-  source ~/.config/nvim/old_init.vim
-]])
