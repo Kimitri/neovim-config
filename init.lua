@@ -124,4 +124,40 @@ map("n", "<leader>fs", ":Telescope git_files<CR>", {noremap = true})
 
 map("n", "<leader>tt", ":NERDTreeToggle<CR>", {noremap = true})
 
+map("i", "<A-j>", "<Esc>:m .+1<CR>==gi", {noremap = true})
+map("i", "<A-k>", "<Esc>:m .-2<CR>==gi", {noremap = true})
+map("v", "<A-j>", ":m '>+1<CR>gv=gv", {noremap = true})
+map("v", "<A-k>", ":m '<-2<CR>gv=gv", {noremap = true})
+map("n", "<A-h>", "<C-w>h", {noremap = true})
+map("n", "<A-j>", "<C-w>j", {noremap = true})
+map("n", "<A-k>", "<C-w>k", {noremap = true})
+map("n", "<A-l>", "<C-w>l", {noremap = true})
 
+-- Center active line when moving half a page up/down
+map("n", "<C-d>", "<C-d>zz", {noremap = true})
+map("n", "<C-u>", "<C-u>zz", {noremap = true})
+
+-- Open file in atext by placing text and gf
+map("n", "gf", ":vert winc f<cr>", {noremap = true})
+-- Copies the current file path to the clipboard
+map("n", "yf", ":let @+ = expand('%:p')<CR>")
+-- Copies pwd to clipboard  
+map("n", "yd", ":let @+ = expand('%:p:h')<CR>")
+
+
+-- Autocmd
+vim.api.nvim_create_autocmd(
+  {"BufRead", "BufNewFile"},
+  {pattern = "*.module", command = "set filetype=php"}
+)
+vim.api.nvim_create_autocmd(
+  {"BufRead", "BufNewFile"},
+  {pattern = "*.install", command = "set filetype=php"}
+)
+vim.api.nvim_create_autocmd(
+  {"BufRead", "BufNewFile"},
+  {pattern = "*.test", command = "set filetype=php"}
+)
+
+-- Jump to the last position when opening a file
+vim.cmd [[autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal! g`\"" | endif]]
