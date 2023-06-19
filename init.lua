@@ -86,7 +86,7 @@ vim.g["airline_symbols.colnr"] = " ℅:"
 vim.g["airline_symbols.readonly"] = ""
 vim.g["airline_symbols.linenr"] = " :"
 vim.g["airline_symbols.maxlinenr"] = "☰ "
-vim.g["airline_symbols.dirty"] = "⚡"
+vim.g["airline_symbols.dirty"] = "*"
 
 
 -- Key mappings
