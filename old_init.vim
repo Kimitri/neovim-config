@@ -1,4 +1,4 @@
-" call plug#begin()
+"  call plug#begin()
 "  Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 "  Plug 'dracula/vim'
 "  Plug 'ryanoasis/vim-devicons'
@@ -20,7 +20,7 @@
 "  Plug 'varnishcache-friends/vim-varnish'
 "  Plug 'ixru/nvim-markdown'
 "  Plug 'github/copilot.vim'
-" call plug#end()
+"  call plug#end()
 
 " let g:loaded_python3_provider = 0
 " let mapleader = "\<Space>"

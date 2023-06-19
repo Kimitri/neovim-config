@@ -11,6 +11,14 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
+local function map(mode, lhs, rhs, opts)
+  local options = { noremap=true, silent=true }
+  if opts then
+    options = vim.tbl_extend('force', options, opts)
+  end
+  vim.api.nvim_set_keymap(mode, lhs, rhs, options)
+end
+
 vim.g.mapleader = " " -- Make sure to set `mapleader` before lazy so your mappings are correct
 vim.g.loaded_python3_provider = 0
 
@@ -24,6 +32,7 @@ require("lazy").setup({
     end,
   },
   {"nvim-treesitter/nvim-treesitter", build = ":TSUpdate"},
+  {"christoomey/vim-tmux-navigator", lazy = false},
   {"ryanoasis/vim-devicons", lazy = false},
   {"honza/vim-snippets", lazy = false},
   "scrooloose/nerdtree",
@@ -37,7 +46,6 @@ require("lazy").setup({
   "nvim-lua/plenary.nvim",
   {"nvim-telescope/telescope.nvim", lazy = false, tag = "0.1.1"},
   "nelsyeung/twig.vim",
-  {"christoomey/vim-tmux-navigator", lazy = false},
   {"vim-airline/vim-airline", lazy = false},
   {"vim-airline/vim-airline-themes", lazy = false},
   "varnishcache-friends/vim-varnish",
@@ -99,4 +107,11 @@ vim.api.nvim_set_keymap("n", "<leader>fs", ":Telescope git_files<CR>", {noremap 
 vim.api.nvim_set_keymap("n", "<leader>tt", ":NERDTreeToggle<CR>", {noremap = true})
 
 
-vim.cmd [[source ~/.config/nvim/old_init.vim]]
+map("n", "<C-l>", "<cmd>TmuxNavigateRight<CR>", {remap = true})
+map("n", "<C-h>", "<cmd>TmuxNavigateLeft<CR>")
+map("n", "<C-k>", "<cmd>TmuxNavigateUp<CR>")
+map("n", "<C-j>", "<cmd>TmuxNavigateDown<CR>")
+
+vim.cmd([[
+  source ~/.config/nvim/old_init.vim
+]])
