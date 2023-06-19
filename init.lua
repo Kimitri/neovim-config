@@ -45,7 +45,7 @@ require("lazy").setup({
   "github/copilot.vim"
 })
 
-
+-- Misc. options
 vim.g.nocompatible = true
 vim.opt.showmatch = true
 vim.opt.ignorecase = true
@@ -67,6 +67,11 @@ vim.opt.mouse = "a"
 vim.opt.clipboard = "unnamedplus"
 vim.opt.cursorline = true
 vim.opt.ttyfast = true
+vim.opt.splitright = true
+vim.opt.splitbelow = true
+
+-- Status line settings incl. Airline
+vim.opt.statusline = "%<%f %h%m%r%{FugitiveStatusline()}%=%-14.(%l,%c%V%) %P"
 
 vim.g["airline_theme"] = "dracula"
 vim.g["airline_powerline_fonts"] = 1
@@ -82,5 +87,16 @@ vim.g["airline_symbols.readonly"] = ""
 vim.g["airline_symbols.linenr"] = " :"
 vim.g["airline_symbols.maxlinenr"] = "☰ "
 vim.g["airline_symbols.dirty"] = "⚡"
+
+
+-- Key mappings
+vim.api.nvim_set_keymap("n", "<leader>ff", ":Telescope find_files<CR>", {noremap = true})
+vim.api.nvim_set_keymap("n", "<leader>fg", ":Telescope live_grep<CR>", {noremap = true})
+vim.api.nvim_set_keymap("n", "<leader>fb", ":Telescope buffers<CR>", {noremap = true})
+vim.api.nvim_set_keymap("n", "<leader>fh", ":Telescope help_tags<CR>", {noremap = true})
+vim.api.nvim_set_keymap("n", "<leader>fs", ":Telescope git_files<CR>", {noremap = true})
+
+vim.api.nvim_set_keymap("n", "<leader>tt", ":NERDTreeToggle<CR>", {noremap = true})
+
 
 vim.cmd [[source ~/.config/nvim/old_init.vim]]

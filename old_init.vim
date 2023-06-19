@@ -104,13 +104,13 @@ endif
  endif
  syntax enable
 
-colorscheme dracula
+" colorscheme dracula
 " open new split panes to right and below
-set splitright
-set splitbelow
-
-
-set statusline=%<%f\ %h%m%r%{FugitiveStatusline()}%=%-14.(%l,%c%V%)\ %P
+" set splitright
+" set splitbelow
+" 
+" 
+" set statusline=%<%f\ %h%m%r%{FugitiveStatusline()}%=%-14.(%l,%c%V%)\ %P
 
 " move line or visually selected block - alt+j/k
 inoremap <A-j> <Esc>:m .+1<CR>==gi
@@ -127,11 +127,11 @@ nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
 " Find files using Telescope command-line sugar.
-nnoremap <leader>ff <cmd>Telescope find_files<cr>
-nnoremap <leader>fs <cmd>Telescope git_files<cr>
-nnoremap <leader>fg <cmd>Telescope live_grep<cr>
-nnoremap <leader>fb <cmd>Telescope buffers<cr>
-nnoremap <leader>fh <cmd>Telescope help_tags<cr>
+" nnoremap <leader>ff <cmd>Telescope find_files<cr>
+" nnoremap <leader>fs <cmd>Telescope git_files<cr>
+" nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+" nnoremap <leader>fb <cmd>Telescope buffers<cr>
+" nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 
 " Press i to enter insert mode, and ii to exit insert mode.
 ":inoremap ii <Esc>
