@@ -68,7 +68,8 @@ require("lazy").setup({
   {"vim-airline/vim-airline-themes", lazy = false},
   "varnishcache-friends/vim-varnish",
   "ixru/nvim-markdown",
-  "github/copilot.vim"
+  "github/copilot.vim",
+  "tikhomirov/vim-glsl"
 })
 
 -- Misc. options
