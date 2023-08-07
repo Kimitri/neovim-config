@@ -23,6 +23,7 @@ vim.g.mapleader = " " -- Make sure to set `mapleader` before lazy so your mappin
 vim.g.loaded_python3_provider = 0
 
 require("lazy").setup({
+  "neovim/nvim-lspconfig",
   {
     "dracula/vim",
     lazy = false,
@@ -57,6 +58,7 @@ require("lazy").setup({
   "preservim/nerdcommenter",
   {"mhinz/vim-startify", lazy = false},
   {"neoclide/coc.nvim", branch = "release"},
+  "ms-jpq/coq_nvim",
   "hashivim/vim-terraform",
   "tpope/vim-fugitive",
   {"airblade/vim-gitgutter", lazy = false},
@@ -71,6 +73,31 @@ require("lazy").setup({
   "github/copilot.vim",
   "tikhomirov/vim-glsl"
 })
+
+require'lspconfig'.ocamlls.setup{}
+require'lspconfig'.terraformls.setup{}
+require'lspconfig'.tsserver.setup{}
+require'lspconfig'.vimls.setup{}
+require'lspconfig'.yamlls.setup{}
+require'lspconfig'.jsonls.setup{}
+require'lspconfig'.bashls.setup{}
+require'lspconfig'.dockerls.setup{}
+require'lspconfig'.html.setup{}
+require'lspconfig'.cssls.setup{}
+require'lspconfig'.pyright.setup{}
+require'lspconfig'.rust_analyzer.setup{}
+require'lspconfig'.gopls.setup{}
+require'lspconfig'.clangd.setup{}
+require'lspconfig'.ccls.setup{}
+require'lspconfig'.jdtls.setup{}
+require'lspconfig'.vuels.setup{}
+require'lspconfig'.svelte.setup{}
+require'lspconfig'.graphql.setup{}
+require'lspconfig'.hls.setup{}
+require'lspconfig'.elixirls.setup{}
+require'lspconfig'.clojure_lsp.setup{}
+require'lspconfig'.nimls.setup{}
+
 
 -- Misc. options
 vim.g.nocompatible = true
