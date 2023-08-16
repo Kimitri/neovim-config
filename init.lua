@@ -52,6 +52,28 @@ require("lazy").setup({
 
     end,
   },
+  {
+    "andrewferrier/wrapping.nvim",
+    config = function()
+      local opts = {
+        auto_set_mode_heuristically = false,
+      }
+      -- local opts = {
+      --   auto_set_mode_filetype_allowlist = {
+      --     "asciidoc",
+      --     "gitcommit",
+      --     "latex",
+      --     "mail",
+      --     "markdown",
+      --     "rst",
+      --     "tex",
+      --     "text",
+      --   },
+      -- }
+      require("wrapping").setup(opts)
+      require("wrapping").soft_wrap_mode()
+    end
+  },
   {"ryanoasis/vim-devicons", lazy = false},
   {"honza/vim-snippets", lazy = false},
   "scrooloose/nerdtree",
