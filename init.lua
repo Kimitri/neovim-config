@@ -58,20 +58,9 @@ require("lazy").setup({
       local opts = {
         auto_set_mode_heuristically = false,
       }
-      -- local opts = {
-      --   auto_set_mode_filetype_allowlist = {
-      --     "asciidoc",
-      --     "gitcommit",
-      --     "latex",
-      --     "mail",
-      --     "markdown",
-      --     "rst",
-      --     "tex",
-      --     "text",
-      --   },
-      -- }
-      require("wrapping").setup(opts)
-      require("wrapping").soft_wrap_mode()
+      wrapping = require("wrapping")
+      wrapping.setup(opts)
+      wrapping.soft_wrap_mode()
     end
   },
   {"ryanoasis/vim-devicons", lazy = false},
