@@ -131,6 +131,7 @@ vim.opt.cc = "80"
 vim.opt.mouse = "a"
 vim.opt.clipboard = "unnamedplus"
 vim.opt.cursorline = true
+vim.opt.cursorcolumn = true
 vim.opt.ttyfast = true
 vim.opt.splitright = true
 vim.opt.splitbelow = true
