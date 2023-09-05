@@ -201,3 +201,7 @@ vim.api.nvim_create_autocmd(
 
 -- Jump to the last position when opening a file
 vim.cmd [[autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal! g`\"" | endif]]
+-- Insert date as YYYY-MM-DD
+vim.cmd [[autocmd BufNewFile *.md 0r !echo "\# $(date +\%Y-\%m-\%d)"]]
+-- Insert opening PHP tag when creating a new PHP file
+vim.cmd [[autocmd BufNewFile *.php 0r !echo "<?php"]]
