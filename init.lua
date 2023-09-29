@@ -82,7 +82,8 @@ require("lazy").setup({
   "varnishcache-friends/vim-varnish",
   "ixru/nvim-markdown",
   "github/copilot.vim",
-  "tikhomirov/vim-glsl"
+  "tikhomirov/vim-glsl",
+  "evanleck/vim-svelte"
 })
 
 require'lspconfig'.ocamlls.setup{}
@@ -135,6 +136,8 @@ vim.opt.cursorcolumn = true
 vim.opt.ttyfast = true
 vim.opt.splitright = true
 vim.opt.splitbelow = true
+vim.opt.foldmethod = "expr"
+vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
 
 -- Status line settings incl. Airline
 vim.opt.statusline = "%<%f %h%m%r%{FugitiveStatusline()}%=%-14.(%l,%c%V%) %P"
@@ -205,3 +208,6 @@ vim.cmd [[autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") |
 vim.cmd [[autocmd BufNewFile *.md 0r !echo "\# $(date +\%Y-\%m-\%d)"]]
 -- Insert opening PHP tag when creating a new PHP file
 vim.cmd [[autocmd BufNewFile *.php 0r !echo "<?php"]]
+
+-- Open all folds when opening a file
+vim.cmd [[autocmd BufWinEnter *.* normal zR]]
