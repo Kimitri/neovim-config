@@ -109,6 +109,7 @@ require'lspconfig'.hls.setup{}
 require'lspconfig'.elixirls.setup{}
 require'lspconfig'.clojure_lsp.setup{}
 require'lspconfig'.nimls.setup{}
+require'lspconfig'.phpactor.setup{}
 
 
 -- Misc. options
@@ -191,15 +192,11 @@ map("n", "yd", ":let @+ = expand('%:p:h')<CR>")
 -- Autocmd
 vim.api.nvim_create_autocmd(
   {"BufRead", "BufNewFile"},
-  {pattern = "*.module", command = "set filetype=php"}
+  {pattern = "*.module,*.install,*.test", command = "set filetype=php"}
 )
 vim.api.nvim_create_autocmd(
   {"BufRead", "BufNewFile"},
-  {pattern = "*.install", command = "set filetype=php"}
-)
-vim.api.nvim_create_autocmd(
-  {"BufRead", "BufNewFile"},
-  {pattern = "*.test", command = "set filetype=php"}
+  {pattern = "*.scss,*.sass,*.css", command = "set foldmethod=indent"}
 )
 
 -- Jump to the last position when opening a file
