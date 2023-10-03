@@ -192,7 +192,11 @@ map("n", "yd", ":let @+ = expand('%:p:h')<CR>")
 -- Autocmd
 vim.api.nvim_create_autocmd(
   {"BufRead", "BufNewFile"},
-  {pattern = "*.module,*.install,*.test", command = "set filetype=php"}
+  {pattern = "*.module,*.install,*.test", command = "set filetype=php; set foldmethod=indent"}
+)
+vim.api.nvim_create_autocmd(
+  {"BufRead", "BufNewFile"},
+  {pattern = "*.php", command = "set foldmethod=indent"}
 )
 vim.api.nvim_create_autocmd(
   {"BufRead", "BufNewFile"},
