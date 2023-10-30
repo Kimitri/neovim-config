@@ -139,6 +139,7 @@ vim.opt.splitright = true
 vim.opt.splitbelow = true
 vim.opt.foldmethod = "expr"
 vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
+vim.opt.foldenable = false
 
 -- Status line settings incl. Airline
 vim.opt.statusline = "%<%f %h%m%r%{FugitiveStatusline()}%=%-14.(%l,%c%V%) %P"
@@ -202,10 +203,6 @@ vim.api.nvim_create_autocmd(
   {"BufRead", "BufNewFile"},
   {pattern = "*.scss,*.sass,*.css", command = "set foldmethod=indent"}
 )
-vim.api.nvim_create_autocmd("User", {
-  pattern = "TelescopePreviewerLoaded",
-  command = "set foldmethod=manual",
-})
 
 -- Jump to the last position when opening a file
 vim.cmd [[autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal! g`\"" | endif]]
