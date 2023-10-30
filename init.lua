@@ -164,7 +164,7 @@ map("n", "<leader>ff", ":Telescope find_files<CR>", {noremap = true})
 map("n", "<leader>fg", ":Telescope live_grep<CR>", {noremap = true})
 map("n", "<leader>fb", ":Telescope buffers<CR>", {noremap = true})
 map("n", "<leader>fh", ":Telescope help_tags<CR>", {noremap = true})
-map("n", "<leader>fs", ":Telescope git_files<CR>", {noremap = true})
+map("n", "<leader>fs", ":Telescope lsp_document_symbols<CR>", {noremap = true})
 
 map("n", "<leader>tt", ":NERDTreeToggle<CR>", {noremap = true})
 
@@ -202,6 +202,10 @@ vim.api.nvim_create_autocmd(
   {"BufRead", "BufNewFile"},
   {pattern = "*.scss,*.sass,*.css", command = "set foldmethod=indent"}
 )
+vim.api.nvim_create_autocmd("User", {
+  pattern = "TelescopePreviewerLoaded",
+  command = "set foldmethod=manual",
+})
 
 -- Jump to the last position when opening a file
 vim.cmd [[autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal! g`\"" | endif]]
