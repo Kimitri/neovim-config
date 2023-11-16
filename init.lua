@@ -75,7 +75,7 @@ require("lazy").setup({
   {"airblade/vim-gitgutter", lazy = false},
   "MaxMEllon/vim-jsx-pretty",
   "nvim-lua/plenary.nvim",
-  {"nvim-telescope/telescope.nvim", lazy = false, tag = "0.1.1"},
+  {"nvim-telescope/telescope.nvim", lazy = false},
   "nelsyeung/twig.vim",
   {"vim-airline/vim-airline", lazy = false},
   {"vim-airline/vim-airline-themes", lazy = false},
