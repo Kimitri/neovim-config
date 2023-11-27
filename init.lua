@@ -83,7 +83,8 @@ require("lazy").setup({
   "ixru/nvim-markdown",
   "github/copilot.vim",
   "tikhomirov/vim-glsl",
-  "evanleck/vim-svelte"
+  "evanleck/vim-svelte",
+  "fatih/vim-go"
 })
 
 require'lspconfig'.ocamlls.setup{}
@@ -159,6 +160,9 @@ vim.g["airline_symbols.linenr"] = " :"
 vim.g["airline_symbols.maxlinenr"] = "☰ "
 vim.g["airline_symbols.dirty"] = "*"
 
+-- LSP settings
+let g:go_def_mode='gopls'
+let g:go_info_mode='gopls'
 
 -- Key mappings
 map("n", "<leader>ff", ":Telescope find_files<CR>", {noremap = true})
