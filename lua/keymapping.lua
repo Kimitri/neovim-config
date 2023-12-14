@@ -15,6 +15,7 @@ map("n", "<leader>fs", ":Telescope lsp_document_symbols<CR>", {noremap = true})
 map("n", "<leader>fd", ":Telescope diagnostics<CR>", {noremap = true})
 
 map("n", "<leader>tt", ":NERDTreeToggle<CR>", {noremap = true})
+map("n", "<leader>ll", ":lua = vim.lsp.buf.format()<CR>", {noremap = true})
 
 map("i", "<A-j>", "<Esc>:m .+1<CR>==gi", {noremap = true})
 map("i", "<A-k>", "<Esc>:m .-2<CR>==gi", {noremap = true})
