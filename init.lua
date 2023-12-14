@@ -170,6 +170,7 @@ map("n", "<leader>fg", ":Telescope live_grep<CR>", {noremap = true})
 map("n", "<leader>fb", ":Telescope buffers<CR>", {noremap = true})
 map("n", "<leader>fh", ":Telescope help_tags<CR>", {noremap = true})
 map("n", "<leader>fs", ":Telescope lsp_document_symbols<CR>", {noremap = true})
+map("n", "<leader>fd", ":Telescope diagnostics<CR>", {noremap = true})
 
 map("n", "<leader>tt", ":NERDTreeToggle<CR>", {noremap = true})
 
@@ -207,6 +208,14 @@ vim.api.nvim_create_autocmd(
   {"BufRead", "BufNewFile"},
   {pattern = "*.scss,*.sass,*.css", command = "set foldmethod=indent"}
 )
+vim.api.nvim_create_autocmd('LspAttach', {
+  callback = function(args)
+    local client = vim.lsp.get_client_by_id(args.data.client_id)
+    if client.server_capabilities.hoverProvider then
+      vim.keymap.set('n', 'K', vim.diagnostic.open_float, { buffer = args.buf })
+    end
+  end,
+})
 
 -- Jump to the last position when opening a file
 vim.cmd [[autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal! g`\"" | endif]]
