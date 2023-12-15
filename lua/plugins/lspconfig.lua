@@ -25,5 +25,6 @@ return {
     require'lspconfig'.clojure_lsp.setup{}
     require'lspconfig'.nimls.setup{}
     require'lspconfig'.phpactor.setup{}
+    require'lspconfig'.elmls.setup{}
   end
 }
