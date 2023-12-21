@@ -37,6 +37,17 @@ return {
           }
         }
       end,
+      ["rust_analyzer"] = function ()
+        require'lspconfig'.rust_analyzer.setup{
+          settings = {
+            ['rust_analyzer'] = {
+              diagnostics = {
+                enable = true;
+              }
+            }
+          }
+        }
+      end
     }
   end
 }
