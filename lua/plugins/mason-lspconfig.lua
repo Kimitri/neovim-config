@@ -37,13 +37,6 @@ return {
           }
         }
       end,
-      ["luals"] = function ()
-        require("lspconfig").luals.setup {
-          settings = {
-            command = { "lua-language-server" },
-          }
-        }
-      end,
       ["rust_analyzer"] = function ()
         require'lspconfig'.rust_analyzer.setup{
           settings = {
