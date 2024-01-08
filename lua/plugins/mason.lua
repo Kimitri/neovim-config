@@ -1,6 +1,9 @@
 return {
     "williamboman/mason.nvim",
     config = function()
-      require("mason").setup()
+      -- Required on NixOS
+      require("mason").setup {
+        PATH = "append",
+      }
     end
 }
