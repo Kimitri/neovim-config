@@ -37,6 +37,13 @@ return {
           }
         }
       end,
+      ["arduino_language_server"] = function ()
+        require("lspconfig").arduino_language_server.setup {
+          cmd = { "arduino-language-server" },
+          filetypes = { "arduino" },
+          root_dir = require("lspconfig.util").root_pattern("*.ino")
+        }
+      end,
       ["rust_analyzer"] = function ()
         require'lspconfig'.rust_analyzer.setup{
           settings = {
