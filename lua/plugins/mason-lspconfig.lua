@@ -44,6 +44,38 @@ return {
           root_dir = require("lspconfig.util").root_pattern("*.ino")
         }
       end,
+      ["phpactor"] = function ()
+        require("lspconfig").phpactor.setup {
+          settings = {
+            phpactor = {
+              enable = true,
+              completion = {
+                enable = true
+              },
+              diagnostics = {
+                enable = false
+              },
+              goto = {
+                implementation = "goto_definition",
+                typeDefinition = "goto_type_definition"
+              },
+              hover = {
+                enable = true
+              },
+              index = {
+                references = true
+              },
+              rename = {
+                enable = true
+              },
+              signatureHelp = {
+                enable = true
+              },
+              workspaceSymbolProvider = true
+            }
+          }
+        }
+      end,
       ["rust_analyzer"] = function ()
         require'lspconfig'.rust_analyzer.setup{
           settings = {
