@@ -33,9 +33,9 @@ return {
       )
     end
     -- Just the menu
-    map({ 't', 'n' }, '<M-Space>', bmui.toggle_quick_menu, opts)
+    map({ 't', 'n' }, '<leader><Space>', bmui.toggle_quick_menu, opts)
     -- Open menu and search
-    map({ 't', 'n' }, '<M-m>', function ()
+    map({ 't', 'n' }, '<leader>m', function ()
       bmui.toggle_quick_menu()
       -- wait for the menu to open
       vim.defer_fn(function ()
@@ -43,8 +43,8 @@ return {
       end, 50)
     end, opts)
     -- Next/Prev
-    map('n', '<M-j>', bmui.nav_next, opts)
-    map('n', '<M-k>', bmui.nav_prev, opts)
+    map('n', '<leader>j', bmui.nav_next, opts)
+    map('n', '<leader>k', bmui.nav_prev, opts)
   end,
   requires = { "nvim-lua/plenary.nvim" },
 }
