@@ -5,7 +5,7 @@ vim.api.nvim_create_autocmd(
 )
 vim.api.nvim_create_autocmd(
   {"VimEnter"},
-  { pattern = "*", command = "if argc() == 1 && isdirectory(argv()[0]) && !exists('s:std_in') | execute 'NERDTree' argv()[0] | wincmd p | enew | execute 'cd '.argv()[0] | endif" }
+  { pattern = "*", command = "if argc() == 1 && isdirectory(argv()[0]) && !exists('s:std_in') | execute 'NERDTree' argv()[0] | wincmd p | enew | execute 'cd '.argv()[0] | wincmd p | endif" }
 )
 
 -- File type specific autocmds
