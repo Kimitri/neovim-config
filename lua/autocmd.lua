@@ -38,3 +38,5 @@ vim.cmd([[autocmd BufNewFile *.php 0r !echo "<?php"]])
 
 -- Open all folds when opening a file
 vim.cmd([[autocmd BufWinEnter *.* normal zR]])
+
+vim.cmd("cnoreabbrev W w")
