@@ -18,6 +18,10 @@ vim.api.nvim_create_autocmd(
   { "BufRead", "BufNewFile" },
   { pattern = "*.scss,*.sass,*.css", command = "set foldmethod=indent" }
 )
+vim.api.nvim_create_autocmd(
+  { "BufRead", "BufNewFile" },
+  { pattern = "*.md,*.markdown,*.mdown", command = "Copilot disable" }
+)
 
 -- LSP
 vim.api.nvim_create_autocmd("LspAttach", {
@@ -31,7 +35,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 
 -- Jump to the last position when opening a file
 vim.cmd([[autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal! g`\"" | endif]])
--- Insert date as YYYY-MM-DD
+-- Insert date as YYYY-MM-DD and disable Copilot for markdown files
 vim.cmd([[autocmd BufNewFile *.md 0r !echo "\# $(date +\%Y-\%m-\%d)"]])
 -- Insert opening PHP tag when creating a new PHP file
 vim.cmd([[autocmd BufNewFile *.php 0r !echo "<?php"]])
