@@ -11,7 +11,7 @@ vim.api.nvim_create_autocmd(
 -- File type specific autocmds
 vim.api.nvim_create_autocmd(
   { "BufRead", "BufNewFile" },
-  { pattern = "*.module,*.install,*.test", command = "set filetype=php; set foldmethod=indent" }
+  { pattern = "*.module,*.install,*.test", command = "set foldmethod=indent" }
 )
 vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, { pattern = "*.php", command = "set foldmethod=indent" })
 vim.api.nvim_create_autocmd(
