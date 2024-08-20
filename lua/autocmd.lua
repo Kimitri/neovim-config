@@ -18,10 +18,10 @@ vim.api.nvim_create_autocmd(
   { "BufRead", "BufNewFile" },
   { pattern = "*.scss,*.sass,*.css", command = "set foldmethod=indent" }
 )
-vim.api.nvim_create_autocmd(
-  { "BufRead", "BufNewFile" },
-  { pattern = "*.md,*.markdown,*.mdown", command = "Copilot disable" }
-)
+-- vim.api.nvim_create_autocmd(
+--   { "BufRead", "BufNewFile" },
+--   { pattern = "*.md,*.markdown,*.mdown", command = "Copilot disable" }
+-- )
 
 -- LSP
 vim.api.nvim_create_autocmd("LspAttach", {
