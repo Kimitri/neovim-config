@@ -18,10 +18,13 @@ vim.api.nvim_create_autocmd(
   { "BufRead", "BufNewFile" },
   { pattern = "*.scss,*.sass,*.css", command = "set foldmethod=indent" }
 )
--- vim.api.nvim_create_autocmd(
---   { "BufRead", "BufNewFile" },
---   { pattern = "*.md,*.markdown,*.mdown", command = "Copilot disable" }
--- )
+-- Only disable Copilot if the plugin exists
+if pcall(vim.fn.exists, "copilot") then
+  vim.api.nvim_create_autocmd(
+    { "BufRead", "BufNewFile" },
+    { pattern = "*.rs,*.rust", command = "Copilot disable" }
+  )
+end
 
 -- LSP
 vim.api.nvim_create_autocmd("LspAttach", {
