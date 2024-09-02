@@ -26,6 +26,14 @@ if pcall(vim.fn.exists, "copilot") then
   )
 end
 
+-- Disable Tabnine on markdown buffers
+if pcall(vim.fn.exists, "tabnine") then
+  vim.api.nvim_create_autocmd(
+    { "BufRead", "BufNewFile" },
+    { pattern = "*.md,*.mdown,*.markdown", command = "TabnineDisable" }
+  )
+end
+
 -- LSP
 vim.api.nvim_create_autocmd("LspAttach", {
   callback = function(args)
