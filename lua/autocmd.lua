@@ -7,6 +7,10 @@ vim.api.nvim_create_autocmd(
   {"VimEnter"},
   { pattern = "*", command = "if argc() == 1 && isdirectory(argv()[0]) && !exists('s:std_in') | execute 'NERDTree' argv()[0] | wincmd p | enew | execute 'cd '.argv()[0] | wincmd p | endif" }
 )
+vim.api.nvim_create_autocmd(
+  {"BufWinEnter"},
+  {command = 'set formatoptions+=ro'}
+)
 
 -- File type specific autocmds
 vim.api.nvim_create_autocmd(
