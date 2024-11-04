@@ -39,6 +39,6 @@ return {
       ---@param colors ColorScheme
       on_highlights = function(highlights, colors) end,
     })
-    -- vim.cmd([[colorscheme melange]])
+    vim.cmd([[colorscheme tokyonight]])
   end
 }
