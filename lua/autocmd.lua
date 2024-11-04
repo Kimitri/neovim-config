@@ -7,6 +7,10 @@ vim.api.nvim_create_autocmd(
   {"VimEnter"},
   { pattern = "*", command = "if argc() == 1 && isdirectory(argv()[0]) && !exists('s:std_in') | execute 'NERDTree' argv()[0] | wincmd p | enew | execute 'cd '.argv()[0] | wincmd p | endif" }
 )
+vim.api.nvim_create_autocmd(
+  {"BufWinEnter"},
+  {command = 'set formatoptions+=ro'}
+)
 
 -- File type specific autocmds
 vim.api.nvim_create_autocmd(
@@ -23,14 +27,6 @@ if pcall(vim.fn.exists, "copilot") then
   vim.api.nvim_create_autocmd(
     { "BufRead", "BufNewFile" },
     { pattern = "*.rs,*.rust", command = "Copilot disable" }
-  )
-end
-
--- Disable Tabnine on markdown buffers
-if pcall(vim.fn.exists, "tabnine") then
-  vim.api.nvim_create_autocmd(
-    { "BufRead", "BufNewFile" },
-    { pattern = "*.md,*.mdown,*.markdown", command = "TabnineDisable" }
   )
 end
 
