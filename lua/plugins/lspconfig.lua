@@ -1,6 +1,6 @@
 return {
   "neovim/nvim-lspconfig",
-  config = function()
+  config = function(_, opts)
     local l = vim.lsp
 
     l.handlers["textDocument/hover"] = function(_, result, ctx, config)
@@ -17,6 +17,13 @@ return {
         return
       end
       return l.util.open_floating_preview(markdown_lines, "markdown", config)
+    end
+
+
+    local lspconfig = require('lspconfig')
+    for server, config in pairs(opts.servers or {}) do
+      config.capabilities = require('blink.cmp').get_lsp_capabilities(config.capabilities)
+      lspconfig[server].setup(config)
     end
 
     vim.diagnostic.config {
