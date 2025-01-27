@@ -26,6 +26,16 @@ return {
       lspconfig[server].setup(config)
     end
 
+    lspconfig.lua_ls.setup {
+      settings = {
+        Lua = {
+          diagnostics = {
+            globals = { 'vim' }
+          }
+        }
+      }
+    }
+
     vim.diagnostic.config {
       float = { border = "rounded" },
     }

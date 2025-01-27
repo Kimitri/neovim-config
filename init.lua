@@ -45,6 +45,10 @@ vim.opt.foldmethod = "expr"
 vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
 vim.opt.foldenable = false
 
+vim.diagnostic.config({
+  virtual_text = false
+})
+
 
 require("keymapping")
 require("autocmd")
