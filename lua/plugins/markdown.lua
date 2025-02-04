@@ -1,3 +1,3 @@
 return {
-  "ixru/nvim-markdown"
+  "Kimitri/nvim-markdown",
 }
