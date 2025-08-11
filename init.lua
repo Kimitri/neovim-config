@@ -44,6 +44,7 @@ vim.opt.splitbelow = true
 vim.opt.foldmethod = "expr"
 vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
 vim.opt.foldenable = false
+vim.opt.winborder = "rounded"
 
 vim.diagnostic.config({
   virtual_text = false
