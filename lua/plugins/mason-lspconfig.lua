@@ -72,6 +72,16 @@ return {
       }
     })
 
+    vim.lsp.config["tinymist"] = {
+      cmd = { "tinymist" },
+      filetypes = { "typst" },
+      settings = {
+        formatterMode = "typstyle",
+        exportPdf = "onSave",
+        semanticTokens = "enable"
+      }
+    }
+
     require("mason-lspconfig").setup {
       ensure_installed = {
         "ansiblels",
@@ -84,9 +94,10 @@ return {
         "phpactor",
         "pyright",
         "rust_analyzer",
+        "tinymist",
         "ts_ls",
         "vimls",
-        "yamlls"
+        "yamlls",
       }
     }
   end
