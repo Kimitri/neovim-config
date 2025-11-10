@@ -20,13 +20,12 @@ return {
     end
 
 
-    local lspconfig = require('lspconfig')
     for server, config in pairs(opts.servers or {}) do
       config.capabilities = require('blink.cmp').get_lsp_capabilities(config.capabilities)
-      lspconfig[server].setup(config)
+      vim.lsp.config(server).setup(config)
     end
 
-    lspconfig.lua_ls.setup {
+    vim.lsp.config('lua_ls', {
       settings = {
         Lua = {
           diagnostics = {
@@ -34,7 +33,7 @@ return {
           }
         }
       }
-    }
+    })
 
     vim.diagnostic.config {
       float = { border = "rounded" },
